@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify, Response
-import tempfile
 import subprocess
 import json
 import os
@@ -34,14 +33,16 @@ def execute():
     os.chmod(script_path, 0o777)
 
     try:
-                
         completed = subprocess.run(
-        ["nsjail", "--mode", "o", "--chroot", "/", "--bindmount_ro", "/app/temp.py","--verbose", "--disable_proc", "--", "/usr/local/bin/python3", "/app/tmp.py"],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        timeout=10,
-        text=True
-    )
+            [
+                "python3", script_path
+            ],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            timeout=10,
+            text=True
+        )
+
 
 
     except subprocess.TimeoutExpired:
