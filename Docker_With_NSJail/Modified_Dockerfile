@@ -19,5 +19,5 @@ COPY . /app
 
 
 RUN pip install --no-cache-dir flask pandas numpy
-CMD ["python3", "app.py"]
+CMD ["python3", "modified_app.py"]
 
