@@ -31,7 +31,7 @@ def execute():
         tmp.write("    result = main()\n")
         tmp.write("    print('__RESULT__:' + json.dumps(result))\n")
 
-    os.chmod(script_path, 0o644)
+    os.chmod(script_path, 0o777)
 
     try:
                 
