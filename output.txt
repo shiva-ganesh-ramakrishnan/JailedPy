@@ -1,2 +1,0 @@
-__RESULT__:{"answer": 118}
-__RESULT__:null
